@@ -1,0 +1,499 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>no title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    .markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}/**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}.emoji {
+  height: 0.8em;
+}@font-face{font-family:'Raleway';font-style:italic;font-weight:400;src:local('Raleway Italic'),local('Raleway-Italic'),url(https://fonts.gstatic.com/s/raleway/v14/1Ptsg8zYS_SKggPNyCg4TYFv.ttf) format('truetype')}@font-face{font-family:'Raleway';font-style:italic;font-weight:700;src:local('Raleway Bold Italic'),local('Raleway-BoldItalic'),url(https://fonts.gstatic.com/s/raleway/v14/1Ptpg8zYS_SKggPNyCgw9qR_AtCe.ttf) format('truetype')}@font-face{font-family:'Raleway';font-style:normal;font-weight:400;src:local('Raleway'),local('Raleway-Regular'),url(https://fonts.gstatic.com/s/raleway/v14/1Ptug8zYS_SKggPNyC0ISg.ttf) format('truetype')}@font-face{font-family:'Raleway';font-style:normal;font-weight:700;src:local('Raleway Bold'),local('Raleway-Bold'),url(https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwJYtWqZPBQ.ttf) format('truetype')}body{background:#fcfcfc;color:#111;font-family:'Raleway',sans-serif;font-weight:400;font-size:16px}body h1,body h2,body h3,body h4,body h5,body h6,body table,body li,body .mathjax-exps,body .math{color:#111;font-family:'Raleway',sans-serif}body h1{font-weight:normal;line-height:4rem;margin:0 0 1.75rem;padding:20px 30px;text-align:center;text-transform:uppercase;margin-top:4rem}body h2{font-weight:normal;line-height:3rem;margin:0 0 1.9375rem;padding:0 30px;text-align:center;text-transform:uppercase;margin-top:3rem}body h3{font-weight:normal}body h4{font-weight:normal}body h5{font-size:1.125rem;font-weight:normal}body h6{font-size:1rem;font-weight:bold}body p{color:#111;font-size:1rem;line-height:1.75rem;margin:0 0 1.25rem}body blockquote{margin-left:1rem;margin-right:0;padding:.5em}body h1{font-size:2.827rem}body h2{font-size:1.999rem}body h3{font-size:1.413rem}body h4{font-size:1.25rem}body h5{font-size:1.15rem}body h6{font-size:1rem}body a{color:#990000;text-decoration:none}body a:hover{text-decoration:underline}body table{margin-bottom:20px}body table th,body table td{padding:8px;line-height:1.25rem;vertical-align:top;border-top:1px solid #ddd}body table th{font-weight:bold}body table thead th{vertical-align:bottom}body table caption+thead tr:first-child th,body table caption+thead tr:first-child td,body table colgroup+thead tr:first-child th,body table colgroup+thead tr:first-child td,body table thead:first-child tr:first-child th,body table thead:first-child tr:first-child td{border-top:0}body table tbody+tbody{border-top:2px solid #ddd}body code{padding:.5em;color:inherit;border:1px solid #ccc;padding:.1em;font-size:.9em;margin-left:.2em;margin-right:.2em}body pre>code{border:none}body li>p{margin-top:0;margin-bottom:0}body .task-list{padding-left:0}body .task-list-item{list-style:none;margin-left:-2.4em}body .task-list-item input{top:3px;margin-right:1.6em}body .task-list-item input:before{content:"";display:inline-block;width:1rem;height:1rem;vertical-align:middle;text-align:center;border:1px solid gray;background-color:#fdfdfd;margin-left:0;margin-top:-0.8rem}body .task-list-item input:checked:before,body .task-list-item input[checked]:before{content:'\25FC';font-size:.8125rem;line-height:.9375rem;margin-top:-1rem}@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm){body .task-list-item input:before{margin-top:-0.2rem}body .task-list-item input:checked:before,body .task-list-item input[checked]:before{margin-top:-0.2rem}}body blockquote{margin:0 0 1.11111rem;padding:.5rem 1.11111rem 0 1.05556rem;border-left:1px solid gray;background-color:#ededed}body blockquote,body blockquote p{line-height:1.6;color:#6f6f6f}body img{max-width:100%}body kbd{color:#111}
+    /* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+    </style>
+    
+  </head>
+  <body for="html-export">
+    <div class="mume markdown-preview">
+    <html><head></head><body><div><h3 class="mume-header" id="%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2%E5%92%8C%E6%80%9D%E8%B7%AF%E6%95%B4%E7%90%86" ebook-toc-level-3 heading="&amp;#x6587;&amp;#x732E;&amp;#x68C0;&amp;#x7D22;&amp;#x548C;&amp;#x601D;&amp;#x8DEF;&amp;#x6574;&amp;#x7406;">&#x6587;&#x732E;&#x68C0;&#x7D22;&#x548C;&#x601D;&#x8DEF;&#x6574;&#x7406;</h3>
+
+<p>2022.4.1</p>
+<hr>
+<h3 class="mume-header" id="%E7%9B%B8%E5%85%B3%E7%89%B9%E5%BE%81%E7%9A%84%E7%9B%B8%E5%85%B3%E6%80%A7" ebook-toc-level-3 heading="&amp;#x76F8;&amp;#x5173;&amp;#x7279;&amp;#x5F81;&amp;#x7684;&amp;#x76F8;&amp;#x5173;&amp;#x6027;">&#x76F8;&#x5173;&#x7279;&#x5F81;&#x7684;&#x76F8;&#x5173;&#x6027;</h3>
+
+<h4 class="mume-header" id="1%E5%85%89%E5%BA%A6%E5%92%8C%E6%B8%A9%E5%BA%A6%E7%9A%84%E5%85%B3%E7%B3%BB" ebook-toc-level-4 heading="1.&amp;#x5149;&amp;#x5EA6;&amp;#x548C;&amp;#x6E29;&amp;#x5EA6;&amp;#x7684;&amp;#x5173;&amp;#x7CFB;">1.&#x5149;&#x5EA6;&#x548C;&#x6E29;&#x5EA6;&#x7684;&#x5173;&#x7CFB;</h4>
+
+<p>H-R diagram</p>
+<p><img src="https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit1/Images/HRDiag.gif" alt></p>
+<p>About 85% of nearby stars, including the Sun, are on the M-S.[&#x4E3B;&#x5E8F;&#x661F;]</p>
+<h4 class="mume-header" id="2%E8%B4%A8%E9%87%8F-%E4%BA%AE%E5%BA%A6%E5%85%B3%E7%B3%BB" ebook-toc-level-4 heading="2.&amp;#x8D28;&amp;#x91CF;-&amp;#x4EAE;&amp;#x5EA6;&amp;#x5173;&amp;#x7CFB;">2.&#x8D28;&#x91CF;-&#x4EAE;&#x5EA6;&#x5173;&#x7CFB;</h4>
+
+<p><img src="https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit2/Images/mlrel.gif" alt></p>
+<p>&#x8D28;&#x5149;&#x5173;&#x7CFB;:</p>
+<p><img src="https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit2/Images/MLrel_eqn.gif" alt></p>
+<h4 class="mume-header" id="3%E5%AF%86%E5%BA%A6%E5%85%B3%E7%B3%BB" ebook-toc-level-4 heading="3.&amp;#x5BC6;&amp;#x5EA6;&amp;#x5173;&amp;#x7CFB;">3.&#x5BC6;&#x5EA6;&#x5173;&#x7CFB;</h4>
+
+<p>&#x4E3B;&#x5E8F;&#xFF1A;&#x5C0F;&#x8303;&#x56F4;&#x7684;&#x5E73;&#x5747;&#x5BC6;&#x5EA6;<br>
+&#x592A;&#x9633; (G2v): ~1.6 g/cc<br>
+O5v &#x661F;&#xFF1A;~0.005 g/cc<br>
+M0v &#x661F;&#xFF1A;~5 g/cc<br>
+&#x5DE8;&#x661F;&#xFF1A;&#x4F4E;&#x5BC6;&#x5EA6;&#x6052;&#x661F;&#xFF1A;~10 -7 g/cc&#xFF08;&#x4F8B;&#x5982;&#xFF0C;K5III&#xFF09;</p>
+<p>&#x8D85;&#x5DE8;&#x661F;&#xFF1A;&#x975E;&#x5E38;&#x4F4E;&#x5BC6;&#x5EA6;&#xFF1A;~10 -9 g/cc&#xFF08;&#x4F8B;&#x5982;&#xFF0C;M2I&#xFF09;</p>
+<p>&#x767D;&#x77EE;&#x661F;&#xFF1A;&#x9AD8;&#x5BC6;&#x5EA6;&#x6052;&#x661F;&#xFF1A;~10 5 g/cc</p>
+<p>&#x4F5C;&#x4E3A;&#x53C2;&#x8003;&#xFF0C;&#x5728;&#x5730;&#x7403;&#x4E0A;&#x7684;&#x6D77;&#x5E73;&#x9762;&#xFF0C;&#x6C34;&#x7684;&#x5BC6;&#x5EA6;&#x4E3A; 1 g/cc&#xFF0C;&#x7A7A;&#x6C14;&#x7684;&#x5BC6;&#x5EA6;&#x7EA6;&#x4E3A; 0.001 g/cc&#x3002;</p>
+<hr>
+<h3 class="mume-header" id="%E7%9B%B8%E5%85%B3%E5%85%B3%E7%B3%BB%E8%83%8C%E5%90%8E%E7%9A%84%E7%90%86%E8%AE%BA%E6%94%AF%E6%8C%81" ebook-toc-level-3 heading="&amp;#x76F8;&amp;#x5173;&amp;#x5173;&amp;#x7CFB;&amp;#x80CC;&amp;#x540E;&amp;#x7684;&amp;#x7406;&amp;#x8BBA;&amp;#x652F;&amp;#x6301;">&#x76F8;&#x5173;&#x5173;&#x7CFB;&#x80CC;&#x540E;&#x7684;&#x7406;&#x8BBA;&#x652F;&#x6301;</h3>
+
+<h4 class="mume-header" id="1the-ideal-gas-law" ebook-toc-level-4 heading="1.The Ideal Gas Law">1.The Ideal Gas Law</h4>
+
+<p>&#x7406;&#x60F3;&#x6C14;&#x4F53;&#x5B9A;&#x5F8B;</p>
+<p><strong>Pressure = Density x Temperature</strong></p>
+<h4 class="mume-header" id="2the-law-of-gravity" ebook-toc-level-4 heading="2.The Law of Gravity">2.The Law of Gravity</h4>
+
+<p>&#x4E07;&#x6709;&#x5F15;&#x529B;&#x5B9A;&#x5F8B;</p>
+<p><strong>Ug~GM<sup>2</sup>/R</strong></p>
+<h4 class="mume-header" id="3hydrostatic-equilibrium" ebook-toc-level-4 heading="3.Hydrostatic Equilibrium">3.Hydrostatic Equilibrium</h4>
+
+<p>&#x6052;&#x661F;&#x5185;&#x90E8;&#x7684;&#x529B;&#x5E73;&#x8861;:</p>
+<p>Gravity pulling inward wants to make the star contract.</p>
+<p>Pressure pushing outwards wants to make star star expand.</p>
+<hr>
+<h3 class="mume-header" id="%E5%9C%A8%E6%AD%A4%E5%9F%BA%E7%A1%80%E4%B8%8A%E5%AF%BC%E5%87%BA%E7%9A%84%E5%A4%A9%E4%BD%93%E7%BB%93%E6%9E%84" ebook-toc-level-3 heading="&amp;#x5728;&amp;#x6B64;&amp;#x57FA;&amp;#x7840;&amp;#x4E0A;&amp;#x5BFC;&amp;#x51FA;&amp;#x7684;&amp;#x5929;&amp;#x4F53;&amp;#x7ED3;&amp;#x6784;">&#x5728;&#x6B64;&#x57FA;&#x7840;&#x4E0A;&#x5BFC;&#x51FA;&#x7684;&#x5929;&#x4F53;&#x7ED3;&#x6784;</h3>
+
+<p><strong>Core-Envelope Structure</strong></p>
+<p>A hot, dense, compact central <strong>CORE</strong> surrounded by a cooler, lower density, extended <strong>ENVELOPE</strong>.</p>
+<h2 class="mume-header" id ebook-toc-level-2 heading></h2>
+
+<p><img src="https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit2/Images/corenv.gif" alt></p>
+<h4 class="mume-header" id="%E5%8F%97%E5%8A%9B%E5%8F%98%E5%8C%96%E7%9A%84%E8%A1%A8%E7%8E%B0" ebook-toc-level-4 heading="&amp;#x53D7;&amp;#x529B;&amp;#x53D8;&amp;#x5316;&amp;#x7684;&amp;#x8868;&amp;#x73B0;">&#x53D7;&#x529B;&#x53D8;&#x5316;&#x7684;&#x8868;&#x73B0;</h4>
+
+<p><strong>Internal</strong> Changes have <strong>External</strong> Consequences.</p>
+<p>&#x6052;&#x661F;&#x5185;&#x90E8;&#x6761;&#x4EF6;&#x7684;&#x53D8;&#x5316;&#x5C06;&#x53CD;&#x6620;&#x5728;&#x5B83;&#x4EEC;&#x7684;&#x5916;&#x89C2;&#x4E0A;&#xFF0C;&#x4ECE;&#x800C;&#x5F71;&#x54CD;&#x5B83;&#x4EEC;&#x5728; HR &#x56FE;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</p>
+<hr>
+<h3 class="mume-header" id="%E6%81%92%E6%98%9F%E5%AF%BF%E5%91%BD%E5%BD%B1%E5%93%8D%E5%9B%A0%E7%B4%A0" ebook-toc-level-3 heading="&amp;#x6052;&amp;#x661F;&amp;#x5BFF;&amp;#x547D;&amp;#x5F71;&amp;#x54CD;&amp;#x56E0;&amp;#x7D20;">&#x6052;&#x661F;&#x5BFF;&#x547D;&#x5F71;&#x54CD;&#x56E0;&#x7D20;</h3>
+
+<p><img src="https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit2/Images/sunlife.gif" alt></p>
+<hr>
+<h3 class="mume-header" id="%E6%81%92%E6%98%9F%E7%9A%84%E6%BC%94%E5%8C%96%E8%BF%87%E7%A8%8B" ebook-toc-level-3 heading="&amp;#x6052;&amp;#x661F;&amp;#x7684;&amp;#x6F14;&amp;#x5316;&amp;#x8FC7;&amp;#x7A0B;">&#x6052;&#x661F;&#x7684;&#x6F14;&#x5316;&#x8FC7;&#x7A0B;</h3>
+
+<h4 class="mume-header" id="%E5%BD%A2%E6%88%90" ebook-toc-level-4 heading="&amp;#x5F62;&amp;#x6210;">&#x5F62;&#x6210;</h4>
+
+<p>&#x5927;&#x8D28;&#x91CF;&#x661F;&#x4E91;GMC&#x7684;&#x574D;&#x7F29;</p>
+<h4 class="mume-header" id="%E4%B8%BB%E5%BA%8F%E5%88%97" ebook-toc-level-4 heading="&amp;#x4E3B;&amp;#x5E8F;&amp;#x5217;">&#x4E3B;&#x5E8F;&#x5217;</h4>
+
+<p>&#x5BFF;&#x547D;</p>
+<h4 class="mume-header" id="%E4%BD%8E%E8%B4%A8%E9%87%8F%E6%98%9F%E4%BD%93" ebook-toc-level-4 heading="&amp;#x4F4E;&amp;#x8D28;&amp;#x91CF;&amp;#x661F;&amp;#x4F53;">&#x4F4E;&#x8D28;&#x91CF;&#x661F;&#x4F53;</h4>
+
+<p>M &lt; 4 Msun</p>
+<h5 class="mume-header" id="1-core-hydrogen-exhaustion" ebook-toc-level-5 heading="1. Core Hydrogen Exhaustion">1. Core Hydrogen Exhaustion</h5>
+
+<p><img src="https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit2/Images/hrrgb.gif" alt><br>
+<strong>&#x5185;&#x90E8;</strong></p>
+<ul>
+<li>&#x6C22;&#x71C3;&#x6599;&#x8017;&#x5C3D;</li>
+<li>H&#x71C3;&#x70E7;&#x533A;&#x79FB;&#x52A8;&#x5230;&#x56F4;&#x7ED5;&#x6838;&#x5FC3;&#x7684;&#x8584;&#x58F3;&#x4E2D;</li>
+<li>&#x584C;&#x9677;&#x7684;&#x6838;&#x5FC3;&#x52A0;&#x70ED;&#x5176;&#x4E0A;&#x65B9;&#x7684; H &#x58F3;&#xFF0C;&#x4ECE;&#x800C;&#x66F4;&#x5FEB;&#x5730;&#x63A8;&#x52A8;&#x805A;&#x53D8;</li>
+<li>&#x66F4;&#x591A;&#x805A;&#x53D8; -&gt; &#x66F4;&#x591A;&#x52A0;&#x70ED;&#xFF0C;&#x56E0;&#x6B64;&#x538B;&#x529B; &gt; &#x91CD;&#x529B;</li>
+</ul>
+<p><strong>&#x5916;&#x90E8;</strong></p>
+<ul>
+<li>&#x5916;&#x5C42;&#xFF08;Envelope&#xFF09;&#x81A8;&#x80C0;&#x5E76;&#x51B7;&#x5374;</li>
+<li>&#x66F4;&#x4EAE;&#x66F4;&#x7EA2;</li>
+</ul>
+<h5 class="mume-header" id="2-helium-flash" ebook-toc-level-5 heading="2. Helium Flash">2. Helium Flash</h5>
+
+<p>&#x6C26;&#x95EA;<br>
+&#x5728; 1 &#x4EBF; K &#x65F6;&#xFF0C;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x805A;&#x53D8;&#x6E90;&#x70B9;&#x71C3;<br>
+&#x5F53;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x53D1;&#x751F;&#x65F6;&#xFF0C;&#x8FD9;&#x9897;&#x6052;&#x661F;&#x7684;&#x6838;&#x5FC3;&#x518D;&#x6B21;&#x62E5;&#x6709;&#x6838;&#x52A8;&#x529B;&#x6E90;&#xFF0C;&#x5E76;&#x79BB;&#x5F00;&#x4E86;&#x5DE8;&#x661F;&#x5206;&#x652F;</p>
+<p><img src="https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit2/Images/hrhb.gif" alt></p>
+<p><strong>&#x5185;&#x90E8;</strong></p>
+<ul>
+<li>&#x5F00;&#x59CB;&#x4ECE;&#x6838;&#x5FC3;&#x4E2D;&#x71C3;&#x70E7;&#x7684; He &#x4EA7;&#x751F;&#x521D;&#x7EA7;&#x80FD;&#x91CF;</li>
+<li>&#x4ECE;&#x56F4;&#x7ED5;&#x6838;&#x5FC3; &#x7684; H &#x71C3;&#x70E7;&#x58F3;&#x83B7;&#x5F97;&#x989D;&#x5916;&#x7684;&#x80FD;&#x91CF;</li>
+</ul>
+<p><strong>&#x5916;&#x90E8;</strong></p>
+<ul>
+<li>&#x53D8;&#x5F97;&#x66F4;&#x70ED;&#x66F4;&#x84DD;</li>
+<li>&#x661F;&#x661F;&#x7684;&#x534A;&#x5F84;&#x7F29;&#x5C0F;&#xFF0C;&#x8D8A;&#x6765;&#x8D8A;&#x6697;</li>
+</ul>
+<h5 class="mume-header" id="3-planetary-nebula-phase" ebook-toc-level-5 heading="3. Planetary Nebula Phase">3. Planetary Nebula Phase</h5>
+
+<p>&#x884C;&#x661F;&#x72B6;&#x661F;&#x4E91;&#x9636;&#x6BB5;</p>
+<h5 class="mume-header" id="4-core-collapse-to-white-dwarf" ebook-toc-level-5 heading="4. Core Collapse to White Dwarf">4. Core Collapse to White Dwarf</h5>
+
+<p>&#x6838;&#x5FC3;&#x574D;&#x7F29;&#x6210;&#x767D;&#x77EE;&#x661F;</p>
+<p><img src="https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit2/Images/hrpne.gif" alt></p>
+<h4 class="mume-header" id="%E5%A4%A7%E8%B4%A8%E9%87%8F%E6%98%9F%E4%BD%93" ebook-toc-level-4 heading="&amp;#x5927;&amp;#x8D28;&amp;#x91CF;&amp;#x661F;&amp;#x4F53;">&#x5927;&#x8D28;&#x91CF;&#x661F;&#x4F53;</h4>
+
+<h5 class="mume-header" id="1-red-supergiant-phase" ebook-toc-level-5 heading="1. Red Supergiant Phase">1. Red Supergiant Phase</h5>
+
+<p>&#x7EA2;&#x8D85;&#x5DE8;&#x76F8;</p>
+<p><img src="https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit2/Images/hrrsg.gif" alt></p>
+<h5 class="mume-header" id="2-helium-flash-1" ebook-toc-level-5 heading="2. Helium Flash">2. Helium Flash</h5>
+
+<p>&#x6C26;&#x95EA;<br>
+&#x6052;&#x661F;&#x53D8;&#x6210;&#x84DD;&#x8D85;&#x5DE8;&#x661F;</p>
+<p><img src="https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit2/Images/hrbsg.gif" alt></p>
+<h5 class="mume-header" id="3-he-core-exhaustion" ebook-toc-level-5 heading="3. He Core Exhaustion">3. He Core Exhaustion</h5>
+
+<p><img src="https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit2/Images/hrbsgend.gif" alt></p>
+<h5 class="mume-header" id="4-%E5%A4%9A%E5%B1%82%E7%87%83%E7%83%A7%E6%A8%A1%E5%9E%8B" ebook-toc-level-5 heading="4. &amp;#x591A;&amp;#x5C42;&amp;#x71C3;&amp;#x70E7;&amp;#x6A21;&amp;#x578B;">4. &#x591A;&#x5C42;&#x71C3;&#x70E7;&#x6A21;&#x578B;</h5>
+
+<p><img src="https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit2/Images/siburn.gif" alt></p>
+<p>&#x4E00;&#x65E6;&#x94C1;&#x6838;&#x5F62;&#x6210;&#xFF0C;&#x6052;&#x661F;&#x5C31;&#x6CA1;&#x6709;&#x65B0;&#x7684;&#x805A;&#x53D8;&#x53CD;&#x5E94;&#x53EF;&#x4F9B;&#x8FDB;&#x884C;</p>
+<h5 class="mume-header" id="5-o-ne-mg-white-dwarf4-mass-8-msun" ebook-toc-level-5 heading="5. O-Ne-Mg White Dwarf&amp;#x3010;4 &amp;lt; Mass &amp;lt; 8 Msun&amp;#x3011;">5. O-Ne-Mg White Dwarf&#x3010;4 &lt; Mass &lt; 8 Msun&#x3011;</h5>
+
+<p>Burn through Carbon<br>
+Blow off their envelope<br>
+Core becomes an O-Ne-Mg White Dwarf</p>
+<h5 class="mume-header" id="5-%E7%81%BE%E9%9A%BE%E6%80%A7%E5%9D%8D%E7%BC%A9mass-8-msun" ebook-toc-level-5 heading="5. &amp;#x707E;&amp;#x96BE;&amp;#x6027;&amp;#x574D;&amp;#x7F29;&amp;#x3010;Mass &amp;gt; 8 Msun&amp;#x3011;">5. &#x707E;&#x96BE;&#x6027;&#x574D;&#x7F29;&#x3010;Mass &gt; 8 Msun&#x3011;</h5>
+
+<p>&#x94C1;&#x82AF;&#x5F00;&#x59CB;&#x6536;&#x7F29;&#x548C;&#x5347;&#x6E29;&#x3002;<br>
+&#x5D29;&#x6E83;&#x662F;&#x6700;&#x7EC8;&#x7684;&#x548C;&#x707E;&#x96BE;&#x6027;&#x7684;</p>
+<h5 class="mume-header" id="6-supernovae" ebook-toc-level-5 heading="6. Supernovae">6. Supernovae</h5>
+
+<p>&#x8D85;&#x65B0;&#x661F;&#x5F62;&#x6210;</p>
+<h6 class="mume-header" id="1-%E7%81%BE%E9%9A%BE%E6%80%A7%E5%B4%A9%E6%BA%83" ebook-toc-level-6 heading="1. &amp;#x707E;&amp;#x96BE;&amp;#x6027;&amp;#x5D29;&amp;#x6E83;">1. &#x707E;&#x96BE;&#x6027;&#x5D29;&#x6E83;</h6>
+
+<p>&#x94C1;&#x82AF;&#x5D29;&#x584C;&#x4E4B;&#x521D;&#xFF0C;&#x6838;&#x5FC3;&#x5C5E;&#x6027;&#x4E3A;&#xFF1A;<br>
+&#x534A;&#x5F84;~6000&#x516C;&#x91CC;&#xFF08;&#x5730;&#x7403;&#x534A;&#x5F84;&#xFF09;<br>
+&#x5BC6;&#x5EA6; ~10<sup>8</sup>g/cc<br>
+&#x4E00;&#x79D2;&#x949F;&#x540E;&#xFF0C;&#x5C5E;&#x6027;&#x662F;&#xFF1A;</p>
+<p>&#x534A;&#x5F84; ~50 &#x516C;&#x91CC;<br>
+&#x5BC6;&#x5EA6; ~10<sup>14</sup>g/cc<br>
+&#x584C;&#x9677;&#x901F;&#x5EA6; ~0.25 c &#xFF01;</p>
+<h6 class="mume-header" id="2-%E6%A0%B8%E5%BF%83%E5%8F%8D%E5%BC%B9" ebook-toc-level-6 heading="2. &amp;#x6838;&amp;#x5FC3;&amp;#x53CD;&amp;#x5F39;">2. &#x6838;&#x5FC3;&#x53CD;&#x5F39;</h6>
+
+<p>&#x6838;&#x5FC3;&#x574D;&#x7F29;&#x76F4;&#x5230;&#x5B83;&#x7684;&#x5BC6;&#x5EA6;&#x8FBE;&#x5230;~2.4x10<sup>14</sup> g/cc&#xFF0C;(&#x8FD9;&#x5927;&#x7EA6;&#x662F;&#x4E00;&#x4E2A;&#x539F;&#x5B50;&#x6838;&#x7684;&#x5BC6;&#x5EA6;)<br>
+&#x81F3;&#x6B64;&#xFF0C;&#x5F3A;&#x5927;&#x7684;&#x6838;&#x529B;&#x5C31;&#x5F00;&#x59CB;&#x8D77;&#x4E3B;&#x5BFC;&#x4F5C;&#x7528;</p>
+<p>&#x6838;&#x5FC3;&#x7684;&#x5185;&#x90E8;~0.7M&#x592A;&#x9633;&#xFF1A;</p>
+<p>&#x621B;&#x7136;&#x800C;&#x6B62;<br>
+&#x8FC7;&#x51B2;&#x548C;&#x56DE;&#x5F39;&#x4E00;&#x70B9;&#xFF08;&#x201C;&#x53CD;&#x5F39;&#x201D;&#xFF09;<br>
+&#x4E0B;&#x843D;&#x7684;&#x6C14;&#x4F53;&#x6B63;&#x9762;&#x649E;&#x51FB;&#x5F39;&#x8DF3;&#x7684;&#x6838;&#x5FC3;&#xFF01;</p>
+<h6 class="mume-header" id="3-%E5%8F%8D%E5%BC%B9%E5%90%8E%E5%86%B2%E5%87%BB%E6%B3%A2" ebook-toc-level-6 heading="3. &amp;#x53CD;&amp;#x5F39;&amp;#x540E;&amp;#x51B2;&amp;#x51FB;&amp;#x6CE2;">3. &#x53CD;&#x5F39;&#x540E;&#x51B2;&#x51FB;&#x6CE2;</h6>
+
+<p>&#x6838;&#x5FC3;&#x53CD;&#x5F39;&#x4EA7;&#x751F;&#x51B2;&#x51FB;&#x6CE2;&#xFF0C;&#x51B2;&#x5165;&#x6052;&#x661F;&#xFF1A;<br>
+&#x52A8;&#x80FD;&#x7EA6;&#x4E3A; 10<sup>51</sup>ergs<br>
+&#x5927;&#x7EA6; 24<sup>40</sup>&#x6BEB;&#x79D2;&#x540E;&#xFF0C;&#x51B2;&#x51FB;&#x6CE2;&#x626B;&#x8FC7;&#x7684;&#x7269;&#x8D28;&#x91CF;&#x7B49;&#x4E8E;&#x51B2;&#x51FB;&#x6CE2;&#x672C;&#x8EAB;&#x7684;&#x7269;&#x8D28;&#x91CF;&#x3002;<br>
+&#x4E0B;&#x843D;&#x548C;&#x5916;&#x6D41;&#x4E4B;&#x95F4;&#x7684;&#x4EA4;&#x901A;&#x5835;&#x585E;&#x3002;<br>
+&#x51B2;&#x51FB;&#x505C;&#x6B62;<br>
+&#x4E0E;&#x6B64;&#x540C;&#x65F6;&#xFF0C;&#x4E2D;&#x5FAE;&#x5B50;&#x6B63;&#x4ECE;&#x5BBF;&#x4E3B;&#x4E2D;&#x5FC3;&#x6838;&#x5FC3;&#x6D8C;&#x51FA;&#xFF1A;</p>
+<p>&#x4E2D;&#x5FAE;&#x5B50;&#x88AB;&#x5468;&#x56F4;&#x7A20;&#x5BC6;&#x7684;&#x6C14;&#x4F53;&#x4FD8;&#x83B7;&#x3002;<br>
+&#x8FD9;&#x5BFC;&#x81F4;&#x6C14;&#x4F53;&#x5FEB;&#x901F;&#x52A0;&#x70ED;&#x3002;<br>
+&#x8FD9;&#x53CD;&#x8FC7;&#x6765;&#x53C8;&#x5BFC;&#x81F4;&#x6838;&#x5FC3;&#x4E0A;&#x65B9;&#x7684;&#x5267;&#x70C8;&#x5BF9;&#x6D41;&#x3002;</p>
+<p>&#x51B2;&#x51FB;&#x6CE2;&#x5728;&#x7EA6; 300 &#x6BEB;&#x79D2;&#x540E;&#x91CD;&#x65B0;&#x751F;&#x6210;&#x3002;</p>
+<p>&#x51B2;&#x51FB;&#x6CE2;&#x7A7F;&#x8FC7;&#x6052;&#x661F;&#x5411;&#x5916;&#x649E;&#x51FB;&#xFF1A;</p>
+<p>&#x51B2;&#x51FB;&#x540E;&#x7684;&#x7206;&#x70B8;&#x6027;&#x6838;&#x805A;&#x53D8;&#x4F1A;&#x4EA7;&#x751F;&#x66F4;&#x591A;&#x7684;&#x91CD;&#x5143;&#x7D20;&#x3002;<br>
+&#x51B2;&#x51FB;&#x5267;&#x70C8;&#x5730;&#x52A0;&#x70ED;&#x5E76;&#x52A0;&#x901F;&#x4E86;&#x6052;&#x661F;&#x5916;&#x58F3;&#x3002;<br>
+&#x51E0;&#x4E2A;&#x5C0F;&#x65F6;&#x540E;&#xFF0C;&#x51B2;&#x51FB;&#x6CE2;&#x4EE5;&#x5927;&#x7EA6; 1/10 &#x5149;&#x901F;&#x7684;&#x901F;&#x5EA6;&#x51B2;&#x51FA;&#x8868;&#x9762;&#x3002;</p>
+<p>&#x4ECE;&#x8FDC;&#x5904;&#x770B;&#xFF0C;&#x661F;&#x661F;&#x7206;&#x70B8;&#x4E86;</p>
+<p><img src="https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit3/Images/aat050_72c.jpg" alt></p>
+<h6 class="mume-header" id="%E5%90%8E%E6%9E%9C" ebook-toc-level-6 heading="&amp;#x540E;&amp;#x679C;">&#x540E;&#x679C;</h6>
+
+<p>At shock breakout:<br>
+Star brightens to ~10 Billion Lsun in minutes.<br>
+Can outshine an entire galaxy of stars!<br>
+Outer envelope is blasted off:</p>
+<p>accelerated to a few x 10,000 km/sec<br>
+gas expands &amp; cools off<br>
+Only the core remains behind.</p>
+<p>&#x8D85;&#x65B0;&#x661F;&#x7206;&#x70B8;&#x4EA7;&#x751F;&#x4E86;&#x81EA;&#x7136;&#x754C;&#x4E2D;&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x7684;<strong>&#x91CD;&#x5143;&#x7D20;</strong>&#x200B;&#x200B;&#x3002;&#x5B87;&#x5B99;&#x5F00;&#x59CB;&#x65F6;&#x53EA;&#x6709;&#x6C22;&#xFF08;75%&#xFF09;&#x3001;&#x6C26;&#xFF08;~25%&#xFF09;&#x548C;&#x5C11;&#x91CF;&#x7684;&#x8F7B;&#x91D1;&#x5C5E;&#xFF0C;&#x5982;&#x9502;&#x3001;&#x787C;&#x548C;&#x94CD;&#x3002;&#x5927;&#x591A;&#x6570;&#x5176;&#x4ED6;&#x5143;&#x7D20;&#x662F;&#x7531;&#x6052;&#x661F;&#x5185;&#x90E8;&#x6216;&#x8D85;&#x65B0;&#x661F;&#x7206;&#x70B8;&#x7684;&#x6700;&#x540E;&#x65F6;&#x523B;&#x53D1;&#x751F;&#x7684;&#x6838;&#x53CD;&#x5E94;&#x5F62;&#x6210;&#x7684;&#x3002;</p>
+<h5 class="mume-header" id="7-supernova-remnants" ebook-toc-level-5 heading="7. Supernova Remnants">7. Supernova Remnants</h5>
+
+<p>What happens to the envelope?</p>
+<ul>
+<li>Fusion-enriched with metals in the explosion</li>
+<li>Expands at a few x10,000 km/sec</li>
+</ul>
+<p>Supernova Blast Wave:</p>
+<ul>
+<li>Plows up the surrounding interstellar gas</li>
+<li>Heats &amp; stirs up the interstellar medium</li>
+<li>Hot enough to shine as ionized nebulae up to a few thousand years after the explosion</li>
+</ul>
+<h5 class="mume-header" id="8-stardust" ebook-toc-level-5 heading="8. Stardust">8. Stardust</h5>
+
+<p>&#x5BCC;&#x542B;&#x91D1;&#x5C5E;&#x7684;&#x8D85;&#x65B0;&#x661F;&#x55B7;&#x5C04;&#x7269;&#x4E0E;&#x661F;&#x9645;&#x6C14;&#x4F53;&#x6DF7;&#x5408;&#x5F62;&#x6210;&#x661F;&#x5C18;</p>
+<hr>
+<h5 class="mume-header" id="9-%E5%A4%A7%E8%B4%A8%E9%87%8F%E6%81%92%E6%98%9F%E6%A0%B8%E5%BF%83%E7%9A%84%E5%90%8E%E7%BB%AD%E7%BB%8F%E5%8E%86" ebook-toc-level-5 heading="9. &amp;#x5927;&amp;#x8D28;&amp;#x91CF;&amp;#x6052;&amp;#x661F;&amp;#x6838;&amp;#x5FC3;&amp;#x7684;&amp;#x540E;&amp;#x7EED;&amp;#x7ECF;&amp;#x5386;">9. &#x5927;&#x8D28;&#x91CF;&#x6052;&#x661F;&#x6838;&#x5FC3;&#x7684;&#x540E;&#x7EED;&#x7ECF;&#x5386;</h5>
+
+<p>&#x8D28;&#x91CF;&#x5C0F;&#x4E8E;<strong>Chandrasekhar Mass</strong>:</p>
+<p>1.White Dwarfs</p>
+<p>Properties:</p>
+<ul>
+<li>Mass &lt; 1.4 Msun</li>
+<li>Radius ~ Rearth (&lt;0.02 Rsun)</li>
+<li>Density ~ 105-6 g/cc</li>
+<li>Escape Speed: 0.02 c (2% speed of light)</li>
+<li>&#x7531;&#x4E8E;&#x4F59;&#x70ED;&#x800C;&#x53D1;&#x5149;&#xFF0C;&#x5E76;&#x4E14;&#x9010;&#x6E10;&#x51B7;&#x5374;</li>
+</ul>
+<p><img src="https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit3/Images/WhiteDwarf.gif" alt></p>
+<p>Larger Mass -&gt; Smaller Radius</p>
+<p>2.Black Dwarf&#x3010;&#x767D;&#x77EE;&#x661F;&#x51B7;&#x5374;(~10 Tyr)&#x3011;</p>
+<p>&#x8D28;&#x91CF;&#x5927;&#x4E8E;<strong>Chandrasekhar Mass</strong>:</p>
+<p>1.Neutron Stars</p>
+<p>Properties:</p>
+<ul>
+<li>Mass ~1.2 - 2 Msun (???)</li>
+<li>Radius ~10 km</li>
+<li>Density ~1014 g/cc</li>
+<li>Escape Speed: 0.70 c (70% speed of light)</li>
+<li>&#x7531;&#x4E8E;&#x4F59;&#x70ED;&#x800C;&#x53D1;&#x5149;&#xFF0C;&#x5E76;&#x4E14;&#x9010;&#x6E10;&#x51B7;&#x5374;</li>
+</ul>
+<p><img src="https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit3/Images/NeutronStar_sm.gif" alt></p>
+<p>2.&#x7279;&#x6B8A;&#x7684;&#x4E2D;&#x5B50;&#x661F;</p>
+<p><strong>Pulsars</strong><br>
+Rapidly spinning, magnetized neutron stars.</p>
+<p><img src="https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit3/Images/lighthouse1.gif" alt></p>
+<p>&#x6838;&#x5FC3;&#x8D28;&#x91CF;&#x5927;&#x4E8E;<strong>2-3 Msun</strong>:<br>
+1.Black Hole.<br>
+<strong>Schwarzschild Radius</strong><br>
+R<sub>s</sub>=2GM/c<sup>2</sup></p>
+<p><img src="https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit3/Images/NSandBH.gif" alt></p>
+<p><strong>Event Horizon</strong><br>
+R<sub>S</sub> defines the &quot;Event Horizon&quot; surrounding the black hole&apos;s singularity.</p>
+</div></body></html>
+    </div>
+  </body>
+</html>
