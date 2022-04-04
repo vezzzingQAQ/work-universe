@@ -103,6 +103,10 @@ var mousedown;
 var mouseup;
 var mousemove;
 
+var touchstart;
+var touchend;
+var touchmove;
+
 var _loopFunction;//储存位于loop中的函数体
 
 /*颜色创建*/
@@ -238,6 +242,34 @@ start = (dom, f, rate = 1) => {
         my = event.offsetY * (canvas.width / dom.offsetWidth);
         try {
             mouseup();
+        } catch { }
+        pmx = mx;
+        pmy = my;
+    });
+    canvas.addEventListener("touchstart", function (event) {
+        console.log(event);
+        mx = event.changedTouches[0].pageX * (canvas.width / dom.offsetWidth);
+        my = event.changedTouches[0].pageY * (canvas.width / dom.offsetWidth);
+        try {
+            touchstart();
+        } catch { }
+        pmx = mx;
+        pmy = my;
+    });
+    canvas.addEventListener("touchend", function (event) {
+        mx = event.changedTouches[0].pageX * (canvas.width / dom.offsetWidth);
+        my = event.changedTouches[0].pageY * (canvas.width / dom.offsetWidth);
+        try {
+            touchend();
+        } catch { }
+        pmx = mx;
+        pmy = my;
+    });
+    canvas.addEventListener("touchmove", function (event) {
+        mx = event.changedTouches[0].pageX * (canvas.width / dom.offsetWidth);
+        my = event.changedTouches[0].pageY * (canvas.width / dom.offsetWidth);
+        try {
+            touchmove();
         } catch { }
         pmx = mx;
         pmy = my;
